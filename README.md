@@ -3,7 +3,7 @@ Aplicação em React de um site que gera citações aleatórias a partir da API 
 
 ## :computer: Visualize este projeto:
 Acesse a página aqui:
-[]()
+[https://geovannaotoni-lucky-quotes.surge.sh/](https://geovannaotoni-lucky-quotes.surge.sh/)
 
 ## :bulb: Habilidades:
 Feito a partir dos conhecimentos de CSS, HTML, JavaScript, JSX, React, Componentes de Classe, PropTypes, NPM, Fetch e Promisses.

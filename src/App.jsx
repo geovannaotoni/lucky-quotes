@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Quote from './components/Quote';
 import ClipLoader from "react-spinners/ClipLoader";
+import Header from './components/Header';
 
 class App extends React.Component {
   state = {
@@ -79,37 +80,59 @@ class App extends React.Component {
       author: author,
     }
 
-    if (isLoading) {
-      return (<ClipLoader
-        color={"#000000"}
-        loading={true}
-        size={80}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />)
-    }
+    // if (isLoading) {
+    //   return (<ClipLoader
+    //     color={"#000000"}
+    //     loading={true}
+    //     size={80}
+    //     aria-label="Loading Spinner"
+    //     data-testid="loader"
+    //   />)
+    // }
 
     return (
-      <main>
-        <h1>Lucky Quote</h1>
-        <article>
-          <Quote 
-            content={content}
-            isFavorite={false}
-            handleFavorite={this.handleFavorite}
-          />
-          <button onClick={() => this.fetchQuote()}>New Quote</button>
-        </article>
-        <h2>Favorite Quotes</h2>
-        {favoriteQuotes.map((quote, index) => (
-          <Quote 
-            key={index}
-            content={quote}
-            isFavorite={true}
-            handleFavorite={this.handleFavorite}
-          />
-        ))}
-      </main>
+      <>
+        <Header />
+        <main>
+          <h1>Lucky Quote</h1>
+          <article>
+            { 
+            isLoading 
+              ? (
+              <ClipLoader
+                color={"#000000"}
+                loading={true}
+                size={80}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+              ) 
+              : (
+                <>
+                    <Quote
+                      content={content}
+                      isFavorite={false}
+                      handleFavorite={this.handleFavorite}
+                    />
+                    <button onClick={() => this.fetchQuote()}>New Quote</button>
+                </>
+              )
+            }
+          </article>
+          <hr/>
+          <h2>Favorite Quotes</h2>
+          <section>
+            {favoriteQuotes.map((quote, index) => (
+              <Quote 
+                key={index}
+                content={quote}
+                isFavorite={true}
+                handleFavorite={this.handleFavorite}
+              />
+            ))}
+          </section>
+        </main>
+      </>
     );
   }
 }
