@@ -29,7 +29,7 @@ class App extends React.Component {
     const favoriteQuotes = JSON.parse(localStorage.getItem('favoriteQuotes'));
     if (favoriteQuotes) {
       this.setState({
-        isLoading: false,
+        // isLoading: false,
         favoriteQuotes: favoriteQuotes,
       })
     }
